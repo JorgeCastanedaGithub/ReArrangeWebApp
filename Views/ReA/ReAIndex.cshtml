@@ -1,0 +1,27 @@
+﻿
+@{  
+    ///Create the value to display in the page
+    var na = string.Empty;
+    try
+    {
+        ///Get the values from the controller
+        ViewBag.Title = "ReAIndex";
+        var s = (Int32)ViewData["size"];
+        var NewArray = (string[])ViewData["NewArray"];
+
+        for (int i = 0; i < s; i++)
+        {
+            na = na + ", " + NewArray[i].ToString();
+        }
+        na = na.Substring(1);
+    }
+    catch (Exception e)
+    {
+        ///For this example, if something wrong happen, show the error meesagge 
+        na = e.Message;
+    }
+}
+
+<h2>ReAIndex: </h2>
+<h1> @na </h1>
+
